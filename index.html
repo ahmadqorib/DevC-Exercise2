@@ -1,11 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Exercise 2</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
 <body>
-    <center>
-        <h1>Kalkulator</h1>
-    </center>
+    <div>KALKULATOR</div>
+    <div>Hanya dapat melakukan perhitungan antara 2 nilai (contoh: 2 + 3)</div>
+    <h2 id="input">0</h2>
+    <button onClick="op('+')">+</button>
+    <button onClick="op('-')">-</button>
+    <button onClick="op('*')">*</button>
+    <button onClick="op('/')">/</button>
+    <button onClick="hasil()">=</button>
+    <button onClick="bersih()">C</button> </br>
+
+    <button id="angka" onclick="change(1)">1</button>
+    <button id="angka" onclick="change(2)">2</button>
+    <button id="angka" onclick="change(3)">3</button>
+    <button id="angka" onclick="change(4)">4</button></br>
+    <button id="angka" onclick="change(5)">5</button>
+    <button id="angka" onclick="change(6)">6</button>
+    <button id="angka" onclick="change(7)">7</button>
+    <button id="angka" onclick="change(8)">8</button></br>
+    <button id="angka" onclick="change(9)">9</button>
+    <button id="angka" onclick="change(0)">0</button>
+    <script>
+        var input = "";
+        var nilai = "";
+
+        var cek = false;
+        var sebagai = "";
+
+        var nilai_awal = "";
+        var nilai_akhir = "";
+
+        var selesai = false;
+
+        function change(value){
+            // nilai = nilai + value;
+            input = input + " " + value;
+            if(cek == true){
+                nilai_akhir = nilai_akhir + value;
+            }else{
+                nilai_awal = nilai_awal + value;
+            }
+           
+            document.querySelector("#input").textContent = input;
+        }
+
+        function op(op){
+            input = input + " " + op;
+            cek = true;
+            sebagai = op;
+            document.querySelector("#input").textContent = input;
+        }
+
+        function bersih(){
+            input = "";
+            nilai = "";
+
+            cek = false;
+            sebagai = "";
+
+            nilai_awal = "";
+            nilai_akhir = "";
+
+            selesai = false;
+
+            document.querySelector("#input").textContent = input;
+        }
+
+        function hasil(){
+            if(sebagai == "+"){
+                plus(parseInt(nilai_awal), parseInt(nilai_akhir));
+            }else if(sebagai == "-"){
+                minus(parseInt(nilai_awal), parseInt(nilai_akhir));
+            }else if(sebagai == "*"){
+                kali(parseInt(nilai_awal), parseInt(nilai_akhir));
+            }else if(sebagai == "/"){
+                bagi(parseInt(nilai_awal), parseInt(nilai_akhir));
+            }
+        }
+
+        function plus(value1, value2){
+            var hasil = value1 + value2;
+            selesai = true;
+            document.querySelector("#input").textContent = hasil;
+        }
+
+        function minus(value1, value2){
+            var hasil = value1 - value2;
+            selesai = true;
+            document.querySelector("#input").textContent = hasil;
+        }
+
+        function kali(value1, value2){
+            var hasil = value1 * value2;
+            selesai = true;
+            document.querySelector("#input").textContent = hasil;
+        }
+
+        function bagi(value1, value2){
+            var hasil = value1 / value2;
+            selesai = true;
+            document.querySelector("#input").textContent = hasil;
+        }
+    </script>
 </body>
 </html>
