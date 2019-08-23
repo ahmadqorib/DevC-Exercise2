@@ -4,32 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Kalkulator</title>
+
+    <style>
+        #box{
+            border: 1px solid lightslategrey;
+            width: 170px;
+            padding: 10px;
+            margin: 5px;
+        }
+
+        #input{
+            border: 1px dotted lightslategrey;
+            padding: 7px;
+            color: teal;
+        }
+
+        .isi{
+            transform: translate(10px);
+        }
+
+        .tombol{
+            margin: 2px;
+            width: 30px;
+            height: 25px;
+            background:teal;
+            color: aliceblue;
+            border: none;
+        }
+    </style>
 </head>
 <body>
     <div>KALKULATOR</div>
     <div>Hanya dapat melakukan perhitungan antara 2 nilai (contoh: 2 + 3)</div>
-    <h2 id="input">0</h2>
-    <button onClick="op('+')">+</button>
-    <button onClick="op('-')">-</button>
-    <button onClick="op('*')">*</button>
-    <button onClick="op('/')">/</button>
-    <button onClick="hasil()">=</button>
-    <button onClick="bersih()">C</button> </br>
-
-    <button id="angka" onclick="change(1)">1</button>
-    <button id="angka" onclick="change(2)">2</button>
-    <button id="angka" onclick="change(3)">3</button>
-    <button id="angka" onclick="change(4)">4</button></br>
-    <button id="angka" onclick="change(5)">5</button>
-    <button id="angka" onclick="change(6)">6</button>
-    <button id="angka" onclick="change(7)">7</button>
-    <button id="angka" onclick="change(8)">8</button></br>
-    <button id="angka" onclick="change(9)">9</button>
-    <button id="angka" onclick="change(0)">0</button>
+    <div id="box">
+        <h2 id="input">0</h2>
+        
+        <div class="isi">
+            <button class="tombol" onClick="bersih()">C</button> 
+            <button class="tombol" onClick="hasil()">=</button>
+            <button class="tombol" onClick="op('+')">+</button>
+            <button class="tombol" onClick="op('-')">-</button></br>
+            <button class="tombol" onClick="op('*')">*</button>
+            <button class="tombol" onClick="op('/')">/</button>
+            
+            <button class="tombol" onclick="change(1)">1</button>
+            <button class="tombol" onclick="change(2)">2</button></br>
+            <button class="tombol" onclick="change(3)">3</button>
+            <button class="tombol" onclick="change(4)">4</button>
+            <button class="tombol" onclick="change(5)">5</button>
+            <button class="tombol" onclick="change(6)">6</button></br>
+            <button class="tombol" onclick="change(7)">7</button>
+            <button class="tombol" onclick="change(8)">8</button>
+            <button class="tombol" onclick="change(9)">9</button>
+            <button class="tombol" onclick="change(0)">0</button>
+        </div>
+    </div>
+    
     <script>
         var input = "";
-        var nilai = "";
 
         var cek = false;
         var sebagai = "";
@@ -70,7 +103,7 @@
 
             selesai = false;
 
-            document.querySelector("#input").textContent = input;
+            document.querySelector("#input").textContent = "0";
         }
 
         function hasil(){
